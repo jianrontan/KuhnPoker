@@ -129,7 +129,7 @@ class Trainer:
         expected_value = 0
         for i in range(iterations):
             # Deal 2 random cards
-            cards = random.sample(self.game.cards, 2)
+            cards = self.game.deal_cards()
 
             # Run CFR
             util = self.cfr(cards, "", 1, 1)
@@ -155,7 +155,7 @@ class Trainer:
 
 if __name__ == "__main__":
     trainer = Trainer()
-    iterations = 10000000
+    iterations = 100000
     expected_value = trainer.train(iterations)
     print(
         f"\nFinal expected value after {iterations} iterations: {expected_value}")
